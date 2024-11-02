@@ -1,0 +1,7 @@
+require("config.remap")
+require("config.lazy")
+require("config.harpoon")
+require("config.nvim-dap")
+require("config.treesitter")
+require("config.indent-blankline")
+require("config.autoclose")
