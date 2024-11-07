@@ -179,6 +179,11 @@ run = 'layout floating'
 if.app-id = 'cc.ffitch.shottr'
 run = 'layout floating'
 
+## Anki
+[[on-window-detected]]
+if.app-id = 'net.ankiweb.dtop'
+run = 'layout floating'
+
 # Automatic move on open
 
 ## Mail
@@ -215,6 +220,7 @@ run = 'move-node-to-workspace T'
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace F'
+
 
 # ➜  ~ aerospace list-apps
 # 626   | com.apple.finder                | Finder

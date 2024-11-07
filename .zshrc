@@ -107,6 +107,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Assumes you have symlinked the dotfiles/aliases.sh file
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+
 # Autocomplete
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # ZSH_AUTOSUGGEST_STRATEGY=(completion)
