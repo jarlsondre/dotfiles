@@ -12,5 +12,6 @@ alias ta="tmux attach -t"
 alias tn="tmux new -s"
 
 # Git
+alias ga="git add ."
 alias gs="git status"
 alias gc="git commit -m"
