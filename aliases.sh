@@ -2,6 +2,7 @@
 alias reload="exec $SHELL"
 alias ..="cd .."                      
 alias ...="cd ../.." 
+alias wa="watch -n 0.5"
 
 # NeoVim
 alias n="nvim"
