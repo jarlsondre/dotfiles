@@ -146,3 +146,5 @@ export PAGER=cat
 
 # Moving to the home directory
 cd 
+
+. "$HOME/.local/bin/env"
