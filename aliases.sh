@@ -3,6 +3,7 @@ alias reload="exec $SHELL"
 alias ..="cd .."                      
 alias ...="cd ../.." 
 alias wa="watch -n 0.5"
+start () { source $1/bin/activate; }
 
 # NeoVim
 alias n="nvim"
