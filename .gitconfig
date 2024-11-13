@@ -1,7 +1,7 @@
 [user]
 	name = Jarl Sondre Sæther
 	email = 60541573+jarlsondre@users.noreply.github.com
-	signingkey = /Users/jarl/.ssh/id_ed25519
+	signingkey = ~/.ssh/id_ed25519
 [commit]
 	gpgsign = true
 [rerere]
