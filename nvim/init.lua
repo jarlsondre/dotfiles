@@ -49,4 +49,5 @@ vim.keymap.set('i', '<M-BS>', "<C-W>")
 -- Adding venv for python black
 vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python")
 
+-- Adding line numbers in netrw
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
