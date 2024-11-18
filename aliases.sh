@@ -10,8 +10,14 @@ alias n="nvim"
 
 # tmux
 alias tl="tmux ls"
-alias ta="tmux attach -t"
 alias tn="tmux new -s"
+ta() {
+  if [ $# -eq 0 ]; then
+    tmux attach
+  else
+    tmux attach -t "$1"
+  fi
+}
 
 # Git
 alias ga="git add ."
