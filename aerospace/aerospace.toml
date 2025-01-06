@@ -184,6 +184,11 @@ run = 'layout floating'
 if.app-id = 'net.ankiweb.dtop'
 run = 'layout floating'
 
+## ChatGPT
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'layout floating'
+
 # Automatic move on open
 
 ## Mail
@@ -220,6 +225,7 @@ run = 'move-node-to-workspace T'
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace F'
+
 
 
 # ➜  ~ aerospace list-apps

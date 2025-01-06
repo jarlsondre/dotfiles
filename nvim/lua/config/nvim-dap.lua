@@ -6,7 +6,6 @@ dap.adapters.python = {
   command = 'python';
   args = { '-m', 'debugpy.adapter' };
 }
-
 dap.configurations.python = {
   {
     type = 'python';
@@ -17,12 +16,36 @@ dap.configurations.python = {
 			-- Adds virtualenv if possible
 			local venv_path = os.getenv("VIRTUAL_ENV")
       if venv_path then
-        return venv_path .. '/bin/python' 
+        return venv_path .. '/bin/python'
       end
-      return '/usr/bin/python3'
+      return '/Users/jarl/.pyenv/shims/python'
+
     end;
   },
 }
+
+-- Adapter for Rust
+dap.adapters.lldb = {
+    type = "server",
+    port = "${port}", -- DAP will automatically choose a free port
+    executable = {
+        command = "/Users/jarl/codelldb/extension/adapter/codelldb",
+        args = { "--port", "${port}" },
+    },
+}
+dap.configurations.rust = {
+    {
+        name = "main",
+        type = "lldb",
+        request = "launch",
+        program = function()
+            return vim.fn.getcwd() .. "/target/debug/rust-minimax"
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+    },
+}
+require('dap').set_log_level('TRACE')
 
 -- Allowing logging of dap
 vim.g.dap_debug_log = true
