@@ -5,30 +5,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "' <-> @",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "backslash" },
-                                "to": [
-                                    {
-                                        "key_code": "backslash",
-                                        "modifiers": ["left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "backslash",
-                                    "modifiers": { "mandatory": "left_option" }
-                                },
-                                "to": [{ "key_code": "backslash" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "option + ø -> \\",
+                        "description": "New Rule (change left_shift+caps_lock to page_down, right_shift+caps_lock to left_command+mission_control)",
                         "manipulators": [
                             {
                                 "from": {
@@ -49,7 +26,7 @@
                         ]
                     },
                     {
-                        "description": "option+k -> '{', option+l -> '}'",
+                        "description": "Map option+k or l to { or }",
                         "manipulators": [
                             {
                                 "from": {

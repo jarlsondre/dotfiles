@@ -30,6 +30,11 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.opt.scrolloff = 10
 vim.opt.colorcolumn = "88"
 
+-- These options are handled by the neoscroll plugin now
+vim.opt.scroll = 15
+-- vim.keymap.set("n", "L", "<C-d>zz", {desc = "Center cursor after moving down half-page"})
+-- vim.keymap.set("n", "H", "<C-u>zz", {desc = "Center cursor after moving up half-page"})
+
 -- Allow search terms to stay in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -47,7 +52,7 @@ vim.keymap.set('x', '<C-Space>', function() vim.api.nvim_feedkeys(esc, 'nx', fal
 vim.keymap.set('i', '<M-BS>', "<C-W>")
 
 -- Adding venv for python black
-vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python")
+vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/.venv/bin/python")
 
 -- Adding line numbers in netrw
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"

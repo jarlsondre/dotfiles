@@ -93,6 +93,7 @@ alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-p = 'focus right'
+alt-o = 'focus left'
 # alt-j = 'focus down'
 # alt-k = 'focus up'
 # alt-l = 'focus right'
@@ -187,6 +188,21 @@ run = 'layout floating'
 ## ChatGPT
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
+run = 'layout floating'
+
+## 1Password
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
+
+## Cisco Secure Client
+[[on-window-detected]]
+if.app-id = 'com.cisco.secureclient.gui'
+run = 'layout floating'
+
+# Karabiner Elements
+[[on-window-detected]]
+if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
 
 # Automatic move on open
