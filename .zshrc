@@ -144,6 +144,9 @@ export KUBECONFIG=/Users/jarl/.kube/config
 # Making the outputs of commands appear in the terminal rather than a new editor
 export PAGER=cat
 
+# Setting up Fzf
+source <(fzf --zsh)
+
 # Moving to the home directory
 cd 
 

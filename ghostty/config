@@ -1,0 +1,8 @@
+theme = "dark pastel"
+background = "#1a1b26"
+
+# Allow clicking on URLs in the terminal
+link-url = "true"
+
+# Make command + backspace delete from the cursor and backwards
+keybind = cmd+backspace=esc:w

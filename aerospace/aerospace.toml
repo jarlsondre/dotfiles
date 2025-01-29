@@ -205,6 +205,11 @@ run = 'layout floating'
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
 
+## Ghostty
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = "layout floating"
+
 # Automatic move on open
 
 ## Mail
@@ -242,21 +247,4 @@ run = 'move-node-to-workspace T'
 if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace F'
 
-
-
-# ➜  ~ aerospace list-apps
-# 626   | com.apple.finder                | Finder
-# 819   | com.facebook.archon.developerID | Messenger
-# 842   | com.1password.1password         | 1Password
-# 52361 | org.zotero.zotero               | Zotero
-# 19574 | net.whatsapp.WhatsApp           | WhatsApp
-# 806  | notion.id                       | Notion
-# 833  | com.facebook.archon.developerID | Messenger
-# 839  | com.spotify.client              | Spotify
-# 999  | com.apple.mail                  | Mail
-# 1089 | com.tinyspeck.slackmacgap       | Slack
-# 1098 | Mattermost.Desktop              | Mattermost
-# 1136 | org.mozilla.firefox             | Firefox
-# 1168 | com.googlecode.iterm2           | iTerm2
-# 1874 | org.xquartz.X11                 | XQuartz
-# 6228 | cc.ffitch.shottr                | Shottr
+# List apps with: 'aerospace list-apps'
