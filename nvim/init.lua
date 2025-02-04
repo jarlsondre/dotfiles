@@ -44,9 +44,17 @@ local comment_api = require("Comment.api")
 local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
 
 -- line comment
-vim.keymap.set("n", "<C-Space>", function() comment_api.toggle.linewise.current() end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Space>",
+  function()
+    comment_api.toggle.linewise.current()
+  end, { noremap = true, silent = true }
+)
 -- visual mode comment
-vim.keymap.set('x', '<C-Space>', function() vim.api.nvim_feedkeys(esc, 'nx', false) comment_api.toggle.linewise(vim.fn.visualmode()) end)
+vim.keymap.set('x', '<C-Space>',
+  function()
+    vim.api.nvim_feedkeys(esc, 'nx', false) comment_api.toggle.linewise(vim.fn.visualmode())
+  end
+)
 
 -- Making option + backspace work as "delete previuos word"
 vim.keymap.set('i', '<M-BS>', "<C-W>")
