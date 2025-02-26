@@ -64,3 +64,10 @@ vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/.venv/bin/python")
 
 -- Adding line numbers in netrw
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
+
+local gitsigns = require("gitsigns")
+vim.keymap.set("n", "<leader>tb",
+  function()
+    gitsigns.toggle_current_line_blame()
+  end
+)
