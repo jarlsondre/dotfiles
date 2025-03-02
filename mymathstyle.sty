@@ -1,0 +1,122 @@
+% Required Packages
+\RequirePackage{amsmath, amssymb, amsthm} % Math formulas and stuff
+\RequirePackage{tcolorbox} % Theorem boxes etc.
+\RequirePackage{enumitem} % Making enumerate fancier, e.g. change size of spaces
+\RequirePackage{geometry} % Setting margin of page
+\RequirePackage{amsfonts} % Stuff like \mathbb
+\RequirePackage[parfill]{parskip} % No indent on new lines
+\RequirePackage{graphicx} % Required for inserting images
+\RequirePackage{mathrsfs} % Required for some caligraphic letters
+\RequirePackage{hyperref} % Used for clickable references
+
+
+\graphicspath{ {./images/} } % Path for images
+
+% Making clickable links prettier
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+% Theorem boxes
+\tcbuselibrary{theorems}
+
+% Definition
+\newtcbtheorem[number within=section]{definition}{Definition}{
+    colback=white,
+    colframe=blue!80!black,
+    fonttitle=\bfseries}
+{def}
+
+% Proposition
+\newtcbtheorem[number within=section]{proposition}{Proposition}{
+    colback=white,
+    colframe=teal!80!black,
+    fonttitle=\bfseries}
+{prop}
+
+% Theorem
+\newtcbtheorem[number within=section]{theorem}{Theorem}{
+    colback=white,
+    colframe=red!80!black,
+    fonttitle=\bfseries}
+{thm}
+
+% Lemma
+\newtcbtheorem[number within=section]{lemma}{Lemma}{
+    colback=white,
+    colframe=yellow!80!orange!90!black, % This should give a gold-like shade
+    fonttitle=\bfseries}
+{lem}
+\newcommand\lemmaautorefname{Definition}
+
+% Construction
+\newtcbtheorem[number within=section]{construction}{Construction}{
+    colback=white,
+    colframe=darkgreen!80!black,
+    fonttitle=\bfseries}
+{const}
+
+% Problem
+\newtcbtheorem{problem}{Problem}{
+    colback=white,
+    colframe=black!85,
+    fonttitle=\bfseries}
+{prob}
+
+% Method
+\newtcbtheorem[number within=section]{method}{Method}{
+    colback=white,
+    colframe=black!85,
+    fonttitle=\bfseries}
+{met}
+
+
+% Sizing of the page
+\geometry{margin=1in}
+\setlist[enumerate]{topsep=1ex,itemsep=1pt,partopsep=1ex,parsep=1ex} % enum spacing
+
+% Creating custom commands
+
+% General
+\newcommand{\ra}{\rightarrow}
+\newcommand{\triang}[1]{\makebox(0,0){\text{\huge #1}}}
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\eqdef}{\stackrel{\text{def}}{=\joinrel=}}
+
+
+% Probability
+\newcommand{\p}[1]{\mathbb{P}\left( #1 \right)}
+\newcommand{\pg}[2]{\mathbb{P}\left( #1\ |\ #2 \right)}
+\newcommand{\ev}[1]{\mathbb{E}\left[ #1 \right]}
+\newcommand{\var}[1]{\text{Var}\left( #1 \right)}
+\newcommand{\cov}[2]{\text{cov}\left( #1, #2 \right)}
+\newcommand{\dunder}[1]{\underline{\underline{ #1 }}}
+
+% Topology
+\newcommand{\fund}{\pi_1(X, x_0)}
+
+% Linear Algebra
+\newcommand{\spn}{\text{Span}}
+\newcommand{\poly}{\mathcal{P}\left(\mathbb{K}\right)}
+\newcommand{\polyd}[1]{\mathcal{P}_{#1}\left(\mathbb{K}\right)}
+
+% Matrix spaces
+\newcommand{\matspace}[2]{\text{Mat}_{#1}\left(#2\right)}
+\newcommand{\matspacenr}{\text{Mat}_{n}\left(\mathbb{R}\right)}
+\newcommand{\matspacenk}{\text{Mat}_{n}\left(\mathbb{K}\right)}
+\newcommand{\sym}[2]{\text{Sym}_{#1}\left(#2\right)}
+\newcommand{\symnk}{\text{Sym}_{n}\left(\mathbb{K}\right)}
+\newcommand{\symnr}{\text{Sym}_{n}\left(\mathbb{R}\right)}
+\newcommand{\skw}[2]{\text{Skew}_{#1}\left(#2\right)}
+\newcommand{\skwnk}{\text{Skew}_{n}\left(\mathbb{K}\right)}
+\newcommand{\skwnr}{\text{Skew}_{n}\left(\mathbb{R}\right)}
+\newcommand{\ran}{\text{ran}}
+
+
+
