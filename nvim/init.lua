@@ -52,7 +52,8 @@ vim.keymap.set("n", "<C-Space>",
 -- visual mode comment
 vim.keymap.set('x', '<C-Space>',
   function()
-    vim.api.nvim_feedkeys(esc, 'nx', false) comment_api.toggle.linewise(vim.fn.visualmode())
+    vim.api.nvim_feedkeys(esc, 'nx', false)
+    comment_api.toggle.linewise(vim.fn.visualmode())
   end
 )
 
@@ -71,3 +72,15 @@ vim.keymap.set("n", "<leader>tb",
     gitsigns.toggle_current_line_blame()
   end
 )
+
+-- Formatting
+local conform = require("conform")
+vim.keymap.set("n", "<leader>fmt", function()
+  conform.format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 2000,
+  })
+end, { desc = "Format file" }
+)
+require("luasnip.loaders.from_snipmate").load()
