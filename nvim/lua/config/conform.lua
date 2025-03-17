@@ -7,4 +7,7 @@ require("conform").setup({
     rust = { "rustfmt", lsp_format = "fallback" },
     latex = { "latexindent" },
   },
+  formatters = {
+    black = { prepend_args = { "--line-length", "95" } }
+  }
 })

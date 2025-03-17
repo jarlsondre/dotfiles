@@ -28,7 +28,7 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.opt.scrolloff = 10
-vim.opt.colorcolumn = "88"
+vim.opt.colorcolumn = "95"
 
 -- These options are handled by the neoscroll plugin now
 vim.opt.scroll = 15
