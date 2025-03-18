@@ -1,4 +1,5 @@
-require("conform").setup({
+local conform = require("conform")
+conform.setup({
   formatters_by_ft = {
     lua = { "stylua" },
     -- Conform will run multiple formatters sequentially
@@ -11,3 +12,12 @@ require("conform").setup({
     black = { prepend_args = { "--line-length", "95" } }
   }
 })
+
+vim.keymap.set("n", "<leader>fmt", function()
+  conform.format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 2000,
+  })
+end, { desc = "Format file" }
+)

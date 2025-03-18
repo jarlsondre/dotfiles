@@ -1,4 +1,5 @@
-require('gitsigns').setup {
+local gitsigns = require('gitsigns')
+gitsigns.setup {
   signs = {
     add          = { text = '┃' },
     change       = { text = '┃' },
@@ -48,3 +49,9 @@ require('gitsigns').setup {
     col = 1
   },
 }
+
+vim.keymap.set("n", "<leader>tb",
+  function()
+    gitsigns.toggle_current_line_blame()
+  end
+)
