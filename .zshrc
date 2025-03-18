@@ -154,9 +154,6 @@ export PAGER=cat
 # Setting up Fzf
 source <(fzf --zsh)
 
-# Moving to the home directory
-cd 
-
 . "$HOME/.local/bin/env"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
