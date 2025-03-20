@@ -19,5 +19,5 @@ vim.keymap.set("n", "<leader>fmt", function()
     async = false,
     timeout_ms = 2000,
   })
-end, { desc = "Format file" }
+end, { desc = "Format file current file with 'conform' plugin" }
 )
