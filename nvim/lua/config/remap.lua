@@ -11,9 +11,9 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, desc = "Escape ter
 
 -- To change the size of the split in 15 point intervals
 vim.keymap.set('n', '<leader>o', '15<C-w>>', { noremap = true, desc = "Make current window larger horizontally" })
-vim.keymap.set('n', '<leader>y', '15<C-w><', { noremap = true, desc = "Make current window smaller horizontally"  })
-vim.keymap.set('n', '<leader>i', '7<C-w>+', { noremap = true, desc = "Make current window larger vertically"  })
-vim.keymap.set('n', '<leader>u', '7<C-w>-', { noremap = true, desc = "Make current window smaller vertically"  })
+vim.keymap.set('n', '<leader>y', '15<C-w><', { noremap = true, desc = "Make current window smaller horizontally" })
+vim.keymap.set('n', '<leader>i', '7<C-w>+', { noremap = true, desc = "Make current window larger vertically" })
+vim.keymap.set('n', '<leader>u', '7<C-w>-', { noremap = true, desc = "Make current window smaller vertically" })
 
 -- Swap window positions
 vim.keymap.set('n', '<leader>s', '<C-w>r', { noremap = true, desc = "Swap window positions" })
