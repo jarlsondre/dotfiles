@@ -5,29 +5,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "' <-> @",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "backslash" },
-                                "to": [
-                                    {
-                                        "key_code": "backslash",
-                                        "modifiers": ["left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "backslash",
-                                    "modifiers": { "mandatory": "left_option" }
-                                },
-                                "to": [{ "key_code": "backslash" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "option + ø -> \\",
                         "manipulators": [
                             {
