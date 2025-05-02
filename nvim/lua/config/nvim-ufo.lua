@@ -3,9 +3,6 @@ vim.opt.foldlevel = 99   -- Using ufo provider need a large value, feel free to 
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 
--- vim.keymap.set('n', '<leader>j', 'zo')
--- vim.keymap.set('n', '<leader>k', 'zc')
-
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = "Open all folds with ufo" })
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = "Close all folds with ufo" })

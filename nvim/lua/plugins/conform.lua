@@ -1,4 +1,1 @@
-return {
-  'stevearc/conform.nvim',
-  opts = {},
-}
+return { 'stevearc/conform.nvim' }

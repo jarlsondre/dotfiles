@@ -3,6 +3,7 @@
 # Setting up symbolic links
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/dotfiles/aliases.sh ~/.aliases
 
 mkdir ~/.config
 ln -s ~/dotfiles/nvim ~/.config/nvim

@@ -119,25 +119,33 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
-# Autocomplete
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# ZSH_AUTOSUGGEST_STRATEGY=(completion)
+# macOS specific setup
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Autocomplete
+  source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-    fi
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+          . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+      else
+          export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+
+  # Adding homebrew to path
+  export PATH=/opt/homebrew/bin:$PATH
+
+  # Setting kubernetes config file
+  export KUBECONFIG=/Users/jarl/.kube/config
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-export PATH=/opt/homebrew/bin:$PATH
+
 
 # Setting up pyenv to work in the terminal
 export GPG_TTY=$(tty)
@@ -145,14 +153,13 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Setting kubernetes config file
-export KUBECONFIG=/Users/jarl/.kube/config
-
 # Making the outputs of commands appear in the terminal rather than a new editor
 export PAGER=cat
 
-# Setting up Fzf
-source <(fzf --zsh)
+# Setting up Fzf (if it exists)
+if command -v fzf > /dev/null; then
+  source <(fzf --zsh)
+fi
 
 . "$HOME/.local/bin/env"
 
