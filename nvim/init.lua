@@ -40,3 +40,15 @@ vim.opt.scroll = 15
 -- Allow search terms to stay in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- To make searches (e.g. /search) and increment searches (e.g. :%s/old/new) more contrastive
+vim.api.nvim_set_hl(0, 'Search', {
+  fg = '#000000',
+  bg = '#ffff5f',
+  bold = true,
+})
+vim.api.nvim_set_hl(0, 'IncSearch', {
+  fg = '#ffffff',
+  bg = '#ff005f',
+  bold = true,
+})

@@ -85,6 +85,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -155,6 +156,9 @@ eval "$(pyenv init -)"
 
 # Making the outputs of commands appear in the terminal rather than a new editor
 export PAGER=cat
+
+# Adding VIM stuff
+bindkey -v
 
 # Setting up Fzf (if it exists)
 if command -v fzf > /dev/null; then

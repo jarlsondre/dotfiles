@@ -12,6 +12,7 @@ dap.configurations.python = {
     request = 'launch';
     name = "Launch file";
     program = "${file}";
+    justMyCode = false;
     pythonPath = function()
 			-- Adds virtualenv if possible
 			local venv_path = os.getenv("VIRTUAL_ENV")
@@ -44,6 +45,18 @@ dap.configurations.rust = {
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
     },
+}
+dap.configurations.cpp = {
+  {
+    name = "Launch C++ file",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+  },
 }
 require('dap').set_log_level('TRACE')
 
