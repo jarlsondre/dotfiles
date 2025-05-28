@@ -17,6 +17,7 @@ vim.opt.smarttab = true
 
 vim.opt.breakindent = true
 vim.opt.updatetime = 250
+vim.o.showtabline = 2
 
 -- Making option + backspace work as "delete previuos word"
 vim.keymap.set('i', '<M-BS>', "<C-W>")
