@@ -5,7 +5,7 @@ require("luasnip.loaders.from_snipmate").load() -- moved from the bottom, make s
 -- basic stuff
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.clipboard = "unnamedplus"
+
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -17,6 +17,11 @@ vim.opt.smarttab = true
 
 vim.opt.breakindent = true
 vim.opt.updatetime = 250
+
+-- vim clipboard uses your system clipboard
+vim.opt.clipboard = "unnamedplus"
+
+-- Make the tabline always visible
 vim.o.showtabline = 2
 
 -- Making option + backspace work as "delete previuos word"
@@ -33,10 +38,9 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.opt.scrolloff = 10
-vim.opt.colorcolumn = "95"
 
--- These options are handled by the neoscroll plugin now
-vim.opt.scroll = 15
+-- Create a column that shows when you've reached 95 characters
+vim.opt.colorcolumn = "95"
 
 -- Allow search terms to stay in the middle
 vim.keymap.set("n", "n", "nzzzv")
