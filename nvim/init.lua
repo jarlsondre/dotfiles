@@ -2,7 +2,10 @@ require("config")
 require("autoclose").setup()
 require("luasnip.loaders.from_snipmate").load() -- moved from the bottom, make sure still works
 
--- basic stuff
+-- Check if current session is on SSH or running locally
+vim.g.is_ssh = require("util.env").in_ssh()
+
+-- Basic stuff
 vim.opt.number = true
 vim.opt.relativenumber = true
 
