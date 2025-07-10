@@ -162,7 +162,18 @@ if command -v fzf > /dev/null; then
   source <(fzf --zsh)
 fi
 
-. "$HOME/.local/bin/env"
+# Ensure ~/.local/bin is in PATH so user-installed tools (e.g., pip --user) are found.
+# This logic adds it only if it's not already present, and prepends it to give priority.
+
+# affix colons on either side of $PATH to simplify matching
+case ":${PATH}:" in
+    *:"$HOME/.local/bin":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed binary needs to be overridden
+        export PATH="$HOME/.local/bin:$PATH"
+        ;;
+esac
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

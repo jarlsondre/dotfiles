@@ -11,3 +11,6 @@ ln -s ~/dotfiles/nvim ~/.config/nvim
 # Setting up plugins for tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
 ~/.tmux/plugins/tpm/bin/install_plugins
+
+# Installing pyenv
+curl -fsSL https://pyenv.run | bash
