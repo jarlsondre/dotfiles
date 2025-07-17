@@ -26,3 +26,7 @@ ta () {
 alias ga="git add ."
 alias gs="git status"
 alias gc="git commit -m"
+alias gp="git push"
+
+# Use ripgrep to search for files matching a regex. Use: 'rgf my_search_string'
+alias rgf='rg --files | rg'
