@@ -40,7 +40,8 @@ dap.configurations.rust = {
         type = "lldb",
         request = "launch",
         program = function()
-            return vim.fn.getcwd() .. "/target/debug/rust-minimax"
+            local bin = vim.fn.expand("%:t:r")
+            return vim.fn.getcwd() .. "/target/debug/" .. bin
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,

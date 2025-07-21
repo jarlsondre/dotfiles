@@ -9,7 +9,6 @@ vim.g.is_ssh = require("util.env").in_ssh()
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 

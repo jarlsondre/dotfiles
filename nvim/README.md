@@ -76,5 +76,16 @@ doing this installation:
   ```bash
   module load binutils/2.42-GCCcore-13.3.0
   ```
+
   Note that this was because I saw that I add loaded this particular version of `GCCcore`,
   so if you're using a different version then you might have to change out the version.
+
+- You exceed the disk quota when installing `cargo`:
+  
+  You can move `cargo`'s and `rustup`'s home directories by setting `CARGO_HOME` and
+  `RUSTUP_HOME`. For example, on JSC, I set them as follows:
+
+  ```bash
+  export CARGO_HOME=/p/project1/intertwin/saether1/.cargo
+  export RUSTUP_HOME=/p/project1/intertwin/saether1/.rustup
+  ```

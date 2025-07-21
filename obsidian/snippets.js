@@ -14,6 +14,12 @@
   {trigger: "**", replacement: "\\cdot", options: "mA"},
   {trigger: "_", replacement: "_{$0}$1", options: "mA"},
   {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA", description: "Auto letter subscript", priority: -1},
+  {trigger: "invs", replacement: "^{-1}", options: "mA"},
+  {trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA"},
+	{trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
+	{trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},
+	{trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA"},
+	{trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA"},
 
   {trigger: ">=", replacement: "\\geq", options: "mA"},
   {trigger: "<=", replacement: "\\leq", options: "mA"},
