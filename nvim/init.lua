@@ -16,6 +16,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
+vim.opt.textwidth = 95
 
 vim.opt.breakindent = true
 vim.opt.updatetime = 250
