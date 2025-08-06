@@ -18,6 +18,9 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.textwidth = 95
 
+-- Don't automatically wrap when going over the textwidth
+vim.opt.formatoptions:remove('t')
+
 vim.opt.breakindent = true
 vim.opt.updatetime = 250
 
@@ -73,3 +76,26 @@ vim.g.clipboard = {
     ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
   },
 }
+
+
+-- Preview images in oil
+vim.api.nvim_create_user_command("MacOSQuicklook", function()
+  local oil = require("oil")
+  local entry = oil.get_cursor_entry()
+
+  local full_path
+  if entry then
+    full_path = vim.fs.joinpath(oil.get_current_dir(), entry.name)
+  else
+    -- Fallback to full path of current buffer
+    full_path = vim.fn.expand("%:p")
+  end
+
+  vim.fn.jobstart({
+    "osascript",
+    "-e",
+    string.format([[tell application "Finder" to open POSIX file "%s"]], full_path),
+  }, { detach = true })
+  -- vim.fn.jobstart({ "qlmanage", "-p", full_path }, { detach = true })
+  -- vim.fn.jobstart({ "open", "-a", "Preview", full_path }, { detach = true })
+end, {})

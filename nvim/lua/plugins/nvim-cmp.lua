@@ -1,33 +1,34 @@
 local is_ssh = vim.g.is_ssh
 
--- Autocompletion plugin
+local dependencies = function()
+  local deps = {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+  }
+
+  if not is_ssh then
+    table.insert(deps, 'saadparwaiz1/cmp_luasnip')
+
+    table.insert(deps, {
+      'L3MON4D3/LuaSnip',
+      build = (function()
+        if vim.fn.executable 'make' == 0 then
+          return nil
+        else
+          return 'make install_jsregexp'
+        end
+      end)(),
+    })
+  end
+
+  return deps
+end
+
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
 
-  dependencies = (function()
-    local deps = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-    }
-
-    if not is_ssh then
-      table.insert(deps, 'saadparwaiz1/cmp_luasnip')
-
-      table.insert(deps, {
-        'L3MON4D3/LuaSnip',
-        build = (function()
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-        -- dependencies = { 'rafamadriz/friendly-snippets' },
-      })
-    end
-
-    return deps
-  end)(),
+  dependencies = dependencies(),
   config = function()
     local cmp = require 'cmp'
 
@@ -44,6 +45,14 @@ return {
     end
 
     cmp.setup {
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.order,
+        },
+      },
       -- Snippet expansion: disable completely in SSH
       snippet = is_ssh and nil or {
         expand = function(args) luasnip.lsp_expand(args.body) end,
@@ -73,6 +82,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'path' },
           { name = 'lazydev', group_index = 0 },
+          { name = 'buffer' },
         }
         if not is_ssh then
           table.insert(s, { name = 'luasnip' })

@@ -1,6 +1,3 @@
-local lsp_zero = require("lsp-zero")
-
-
 -- Functionality for toggling diagnostics (inline errors etc.)
 local diagnostics_active = true
 local toggle_diagnostics = function()
@@ -31,19 +28,42 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>dn', toggle_diagnostics, { desc = "Toggle diagnostics" })
 end
 
-lsp_zero.extend_lspconfig({
-  sign_text = true,
-  lsp_attach = lsp_attach,
-})
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- Replace the language servers listed here
-  -- with the ones you want to install
-  ensure_installed = { 'lua_ls', 'rust_analyzer', 'pyright', "texlab" },
+  ensure_installed = {
+    -- Bash
+    'bash-language-server',
+    'beautysh',
+    'shellcheck',
+
+    'clang-format',
+    'clangd',
+    'codelldb',
+    'cpptools',
+
+    'latexindent',
+    'texlab',
+
+    'lua-language-server',
+    -- Markdown
+    'marksman',
+    'sphinx-lint',
+
+    -- Python
+    'pyright',
+    'ruff',
+
+    'rust-analyzer',
+  },
+
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({})
+      require('lspconfig')[server_name].setup({
+        on_attach = lsp_attach,
+        capabilities = capabilities
+      })
     end,
 
     pyright = function()
@@ -58,11 +78,9 @@ require('mason-lspconfig').setup({
             },
           },
         },
-        on_attach = lsp_attach, -- Attach custom keymaps
       })
     end,
     texlab = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
       require('lspconfig').texlab.setup({
