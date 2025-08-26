@@ -29,33 +29,20 @@ local lsp_attach = function(client, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
+capabilities.general = capabilities.general or {}
+capabilities.general.positionEncodings = { "utf-16" }
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-    -- Bash
-    'bash-language-server',
-    'beautysh',
-    'shellcheck',
-
-    'clang-format',
     'clangd',
-    'codelldb',
-    'cpptools',
-
-    'latexindent',
     'texlab',
-
-    'lua-language-server',
     -- Markdown
     'marksman',
-    'sphinx-lint',
-
-    -- Python
     'pyright',
     'ruff',
-
-    'rust-analyzer',
+    'rust_analyzer',
   },
 
   handlers = {
@@ -68,6 +55,7 @@ require('mason-lspconfig').setup({
 
     pyright = function()
       require('lspconfig').pyright.setup({
+        capabilities = capabilities,
         settings = {
           python = {
             analysis = {

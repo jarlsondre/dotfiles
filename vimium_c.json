@@ -1,0 +1,24 @@
+{
+	"name": "Vimium C",
+	"@time": "26/08/2025, 09:58:14",
+	"time": 1756195094107,
+	"environment": {
+		"extension": "2.12.3",
+		"platform": "mac",
+		"firefox": 142
+	},
+	"exclusionRules": [
+		{
+			"passKeys": "",
+			"pattern": ":https://monkeytype.com/"
+		}
+	],
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"map J nextTab",
+		"map K previousTab",
+		""
+	],
+	"vimSync": true
+}
