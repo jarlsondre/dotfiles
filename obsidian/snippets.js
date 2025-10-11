@@ -1,6 +1,7 @@
 [
   {trigger: "mk", replacement: "$$0$$1", options: "tA"},
   {trigger: "md", replacement: "$$\n$0\n$$", options: "tw"},
+  {trigger: "ali", replacement: "$$\n\\begin{align}\n\t$0\n\\end{align}\n$$", options: "tw"},
   {trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA"},
   {trigger: "\"", replacement: "\\text{$0}$1", options: "mA"},
   {trigger: "cal", replacement: "\\mathcal{$0}$1", options: "mA"},
@@ -8,7 +9,11 @@
   {trigger: "ooo", replacement: "\\infty", options: "mA"},
   {trigger: "\\sum", replacement: "\\sum_{${0:i}=${1:1}}^{${2:n}} $3", options: "m"},
   {trigger: "\\prod", replacement: "\\prod_{${0:i}=${1:1}}^{${2:n}} $3", options: "m"},
-  {trigger: "lim", replacement: "\\lim_{ ${0:n} \\to ${1:\\infty} } $2", options: "mA"},
+  {trigger: "limm", replacement: "\\lim_{ ${0:n} \\to ${1:\\infty} } $2", options: "mA"},
+  {trigger: "limsup", replacement: "\\limsup_{ ${0:m} \\to ${1:\\infty} } $2", options: "mA"},
+  {trigger: "liminf", replacement: "\\liminf_{ ${0:m} \\to ${1:\\infty} } $2", options: "mA"},
+  {trigger: "argmin", replacement: "\\mathop{\\mathrm{argmin}}_{$0} $2", options: "mA"},
+  {trigger: "argmax", replacement: "\\mathop{\\mathrm{argmax}}_{$0} $2", options: "mA"},
   {trigger: "...", replacement: "\\dots", options: "mA"},
   {trigger: "xx", replacement: "\\times", options: "mA"},
   {trigger: "**", replacement: "\\cdot", options: "mA"},
@@ -20,6 +25,9 @@
 	{trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},
 	{trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA"},
 	{trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA"},
+	{trigger: "lrv", replacement: "\\lVert $0 \\rVert $1", options: "mA"},
+  {trigger: "lrfloor", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
+  {trigger: "lrceil", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
 
   {trigger: ">=", replacement: "\\geq", options: "mA"},
   {trigger: "<=", replacement: "\\leq", options: "mA"},
@@ -38,8 +46,10 @@
 
   {trigger: "CC", replacement: "\\mathbb{C}", options: "mA"},
   {trigger: "RR", replacement: "\\mathbb{R}", options: "mA"},
+  {trigger: "QQ", replacement: "\\mathbb{Q}", options: "mA"},
   {trigger: "ZZ", replacement: "\\mathbb{Z}", options: "mA"},
   {trigger: "NN", replacement: "\\mathbb{N}", options: "mA"},
+  {trigger: "ev", replacement: "\\mathbb{E}\\left[ $0 \\right]$1", options: "m"},
 
   // Trigonometry
   {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
@@ -68,6 +78,5 @@
   {trigger: "matrix", replacement: "\\begin{matrix}$0\\end{matrix}", options: "nA"},
 
   {trigger: "cases", replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "mA"},
-  {trigger: "align", replacement: "\\begin{align}\n$0\n\\end{align}", options: "mA"},
   {trigger: "array", replacement: "\\begin{array}\n$0\n\\end{array}", options: "mA"},
 ]

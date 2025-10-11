@@ -104,5 +104,5 @@ end)
 -- Showing the variable scopes
 vim.keymap.set('n', '<Leader>ds', function()
   local widgets = require('dap.ui.widgets')
-  widgets.centered_float(widgets.scopes)
+  widgets.sidebar(widgets.scopes, nil, 'leftabove 40vsplit').open()
 end)

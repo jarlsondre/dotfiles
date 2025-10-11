@@ -47,14 +47,15 @@ require('mason-lspconfig').setup({
 
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({
+      vim.lsp.config(server_name, {
         on_attach = lsp_attach,
         capabilities = capabilities
       })
+      vim.lsp.enable(server_name)
     end,
 
     pyright = function()
-      require('lspconfig').pyright.setup({
+      vim.lsp.config('pyright', {
         capabilities = capabilities,
         settings = {
           python = {
@@ -67,11 +68,13 @@ require('mason-lspconfig').setup({
           },
         },
       })
+      vim.lsp.enable('pyright')
+
     end,
     texlab = function()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-      require('lspconfig').texlab.setup({
+      vim.lsp.config('texlab', {
         capabilities = capabilities,
         settings = {
           texlab = {
@@ -94,6 +97,7 @@ require('mason-lspconfig').setup({
           },
         },
       })
+      vim.lsp.enable('texlab')
     end,
   }
 })

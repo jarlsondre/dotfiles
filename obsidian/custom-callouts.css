@@ -1,0 +1,20 @@
+.callout[data-callout="theorem"] {
+    --callout-color: 255, 140, 60; /* strong orange */
+    --callout-icon: pi;
+}
+.callout[data-callout="lemma"] {
+    --callout-color: 100, 150, 255; /* bright blue */
+    --callout-icon: pi;
+}
+.callout[data-callout="proposition"] {
+    --callout-color: 200, 100, 220; /* vivid purple */
+    --callout-icon: pi;
+}
+.callout[data-callout="definition"] {
+    --callout-color: 80, 200, 80; /* strong green */
+    --callout-icon: pi;
+}
+.callout[data-callout="corollary"] {
+    --callout-color: 255, 200, 50; /* bright yellow */
+    --callout-icon: pi;
+}
