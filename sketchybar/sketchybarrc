@@ -36,6 +36,7 @@ source "$ITEM_DIR/front_app.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/brightness.sh"
 
 #### Finalizing Setup #####
 # The below command is only needed at the end of the initial configuration to
