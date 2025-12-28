@@ -14,7 +14,10 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
-after-startup-command = ['exec-and-forget sketchybar']
+after-startup-command = [
+  'exec-and-forget sketchybar',
+  'exec-and-forget borders active_color=0xff4CAF50 inactive_color=0xff494d64 width=5.0'
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -59,8 +62,8 @@ inner.horizontal = 5
 inner.vertical =   5
 outer.left =       5
 outer.bottom =     5
-outer.top = [
-  { monitor."built-in" = 5 },   # Matches MacBook screen (with the notch)
+outer.top = [                    # This is done to work with sketchybar
+  { monitor."built-in" = 5 },    # Matches MacBook screen (with the notch)
   { monitor."main" = 37 },       # Applies to whichever display is currently "main"
   45                             # Fallback default for all others
 ]
@@ -139,6 +142,7 @@ alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
+
 # These are disabled because of brackets and their weird input controls
 # alt-shift-7 = 'move-node-to-workspace 7'
 # alt-shift-8 = 'move-node-to-workspace 8'
@@ -150,6 +154,11 @@ alt-shift-s = 'move-node-to-workspace S'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-n = 'move-node-to-workspace N'
 alt-shift-c = 'move-node-to-workspace C'
+
+alt-shift-h = 'join-with left'
+alt-shift-j = 'join-with down'
+alt-shift-k = 'join-with up'
+alt-shift-l = 'join-with right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -216,6 +225,10 @@ run = "layout floating"
 if.app-id = "NULL-APP-BUNDLE-ID"
 run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = "com.colliderli.iina"
+run = "layout floating"
+
 # Automatic move on open
 ## Mail
 [[on-window-detected]]
@@ -251,5 +264,3 @@ run = 'move-node-to-workspace T'
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace F'
-
-# List apps with: 'aerospace list-apps'

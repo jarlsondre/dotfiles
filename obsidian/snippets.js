@@ -18,14 +18,17 @@
   {trigger: "xx", replacement: "\\times", options: "mA"},
   {trigger: "**", replacement: "\\cdot", options: "mA"},
   {trigger: "_", replacement: "_{$0}$1", options: "mA"},
+  {trigger: "^", replacement: "^{$0}$1", options: "mA"},
   {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA", description: "Auto letter subscript", priority: -1},
   {trigger: "invs", replacement: "^{-1}", options: "mA"},
+  {trigger: "tp", replacement: "^{\\intercal}", options: "m"},
+  {trigger: "@@", replacement: "^{2}", options: "mA"},
   {trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA"},
 	{trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
 	{trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},
 	{trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA"},
 	{trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA"},
-	{trigger: "lrv", replacement: "\\lVert $0 \\rVert $1", options: "mA"},
+	{trigger: "lrv", replacement: "\\left\\lVert $0 \\right\\rVert $1", options: "mA"},
   {trigger: "lrfloor", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
   {trigger: "lrceil", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
 
@@ -50,6 +53,7 @@
   {trigger: "ZZ", replacement: "\\mathbb{Z}", options: "mA"},
   {trigger: "NN", replacement: "\\mathbb{N}", options: "mA"},
   {trigger: "ev", replacement: "\\mathbb{E}\\left[ $0 \\right]$1", options: "m"},
+  {trigger: "evs", replacement: "\\mathbb{E}_{$0}\\left[ $1 \\right]$2", options: "m"},
 
   // Trigonometry
   {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
