@@ -40,11 +40,9 @@ require('mason-lspconfig').setup({
     'texlab',
     -- Markdown
     'marksman',
-    'pyright',
     'ruff',
     'rust_analyzer',
   },
-
   handlers = {
     function(server_name)
       vim.lsp.config(server_name, {
@@ -54,23 +52,7 @@ require('mason-lspconfig').setup({
       vim.lsp.enable(server_name)
     end,
 
-    pyright = function()
-      vim.lsp.config('pyright', {
-        capabilities = capabilities,
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "standard",
-              autoSearchPaths = true,
-              diagnosticMode = "workspace",
-              useLibraryCodeForTypes = true,
-            },
-          },
-        },
-      })
-      vim.lsp.enable('pyright')
 
-    end,
     texlab = function()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -101,3 +83,10 @@ require('mason-lspconfig').setup({
     end,
   }
 })
+
+vim.lsp.config('ty', {
+  on_attach = lsp_attach,
+  capabilities = capabilities,
+})
+vim.lsp.enable('ty')
+

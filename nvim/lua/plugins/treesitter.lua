@@ -1,11 +1,15 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
+    branch = "master",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter").setup {}
-      require("nvim-treesitter").install({ "c", "lua", "vim", "vimdoc", "query", "python", "rust" })
+      require("nvim-treesitter.configs").setup {
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust" },
+        highlight = { enable = true },
+        indent = { enable = true },
+        incremental_selection = { enable = true },
+      }
     end,
   }
 }
