@@ -1,8 +1,6 @@
 [
   {trigger: "mk", replacement: "$$0$$1", options: "tA"},
-  {trigger: "md", replacement: "$$\n$0\n$$", options: "tw"},
   {trigger: "ali", replacement: "$$\n\\begin{align}\n\t$0\n\\end{align}\n$$", options: "tw"},
-  {trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA"},
   {trigger: "\"", replacement: "\\text{$0}$1", options: "mA"},
   {trigger: "cal", replacement: "\\mathcal{$0}$1", options: "mA"},
 
@@ -21,14 +19,14 @@
   {trigger: "^", replacement: "^{$0}$1", options: "mA"},
   {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA", description: "Auto letter subscript", priority: -1},
   {trigger: "invs", replacement: "^{-1}", options: "mA"},
-  {trigger: "tp", replacement: "^{\\intercal}", options: "m"},
+  {trigger: "tp", replacement: "^{\\top}", options: "m"},
   {trigger: "@@", replacement: "^{2}", options: "mA"},
   {trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA"},
 	{trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
 	{trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},
 	{trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA"},
 	{trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA"},
-	{trigger: "lrv", replacement: "\\left\\lVert $0 \\right\\rVert $1", options: "mA"},
+	{trigger: "lrv", replacement: "\\left\\lVert\\vphantom{|} $0 \\right\\rVert $1", options: "mA"},
   {trigger: "lrfloor", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
   {trigger: "lrceil", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
 
@@ -61,10 +59,6 @@
   {trigger: /\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/,
     replacement: "\\[[0]] [[1]]", options: "rmA",
     description: "Add space after trig funcs. Skips letter h to allow sinh, cosh, etc."},
-
-  {trigger: /\\(sinh|cosh|tanh|coth)([A-Za-z])/,
-    replacement: "\\[[0]] [[1]]", options: "rmA",
-    description: "Add space after hyperbolic trig funcs"},
 
   // Environments
   {trigger: "pmat", replacement: "\\begin{pmatrix}\n$0\n\\end{pmatrix}", options: "MA"},

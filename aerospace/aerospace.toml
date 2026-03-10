@@ -104,8 +104,10 @@ ctrl-period = 'layout tiles horizontal vertical'
 ctrl-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-ctrl-l = 'focus right'
 ctrl-h = 'focus left'
+ctrl-j = 'focus down'
+ctrl-k = 'focus up'
+ctrl-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 ctrl-shift-h = 'move left'
@@ -124,6 +126,8 @@ alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
 alt-6 = 'workspace 6'
+
+# These are disabled because of brackets and their weird input controls
 # alt-7 = 'workspace 7'
 # alt-8 = 'workspace 8'
 # alt-9 = 'workspace 9'
@@ -188,6 +192,11 @@ run = 'layout floating'
 ## Shottr
 [[on-window-detected]]
 if.app-id = 'cc.ffitch.shottr'
+run = 'layout floating'
+
+## Shottr
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
 run = 'layout floating'
 
 ## Anki
