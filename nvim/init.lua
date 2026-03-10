@@ -17,6 +17,7 @@ vim.opt.smartcase = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.textwidth = 95
+vim.opt.backupcopy = "yes"
 
 -- Don't automatically wrap when going over the textwidth
 vim.opt.formatoptions:remove('t')
