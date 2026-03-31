@@ -29,6 +29,12 @@ end
 return {
   -- Regular snippets (need Tab to expand)
 
+  -- Bold text
+  s("bf", { t("\\textbf{"), i(1), t("}"), i(0) }, { condition = not_mathzone }),
+
+  -- Italics
+  s("it", { t("\\textit{"), i(1), t("}"), i(0) }, { condition = not_mathzone }),
+
   -- Various Operators
   s("\\sum", { t("\\sum_{"), i(1, "i"), t("="), i(2, "1"), t("}^{"), i(3, "n"), t("} "), i(0) },
     { condition = in_mathzone }),
@@ -41,6 +47,10 @@ return {
 
   -- Environment
   s("ali", { t({ "\\begin{align*}", "\t" }), i(0), t({ "", "\\end{align*}" }) },
+    { condition = not_mathzone }),
+  s("def", { t({ "\\begin{definition}", "\t" }), i(0), t({ "", "\\end{definition}" }) },
+    { condition = not_mathzone }),
+  s("thm", { t({ "\\begin{theorem}", "\t" }), i(0), t({ "", "\\end{theorem}" }) },
     { condition = not_mathzone }),
 
   -- Lists

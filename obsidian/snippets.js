@@ -1,7 +1,7 @@
 [
   {trigger: "mk", replacement: "$$0$$1", options: "tA"},
   {trigger: "ali", replacement: "$$\n\\begin{align}\n\t$0\n\\end{align}\n$$", options: "tw"},
-  {trigger: "\"", replacement: "\\text{$0}$1", options: "mA"},
+  {trigger: ";;, replacement: "\\text{$0}$1", options: "mA"},
   {trigger: "cal", replacement: "\\mathcal{$0}$1", options: "mA"},
 
   {trigger: "ooo", replacement: "\\infty", options: "mA"},
