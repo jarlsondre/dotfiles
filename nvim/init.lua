@@ -1,3 +1,6 @@
+-- To make nvim find our python virtualenv for e.g. molten
+vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/python-env/bin/python")
+
 require("config")
 require("autoclose").setup()
 require("luasnip.loaders.from_snipmate").load() -- moved from the bottom, make sure still works
@@ -64,6 +67,7 @@ vim.api.nvim_set_hl(0, 'IncSearch', {
   bg = '#ff005f',
   bold = true,
 })
+
 
 
 -- Preview images in oil

@@ -40,7 +40,7 @@ return {
     { condition = in_mathzone }),
   s("\\prod", { t("\\prod_{"), i(1, "i"), t("="), i(2, "1"), t("}^{"), i(3, "n"), t("} "), i(0) },
     { condition = in_mathzone }),
-  s("tp", t("^{\\top}"), { condition = in_mathzone, wordTrig = false }),
+  s({ trig = "tp", wordTrig = false }, t("^{\\top}"), { condition = in_mathzone }),
   s("ev", { t("\\mathbb{E}\\left[ "), i(1), t(" \\right]"), i(0) }, { condition = in_mathzone }),
   s("evs", { t("\\mathbb{E}_{"), i(1), t("}\\left[ "), i(2), t(" \\right]"), i(0) },
     { condition = in_mathzone }),
@@ -77,8 +77,10 @@ return {
   math_snip("@@", "^{2}"),
 
   -- Sub/superscripts
-  s("_", { t("_{"), i(1), t("}"), i(0) }, { condition = in_mathzone, snippetType = "autosnippet" }),
-  s("^", { t("^{"), i(1), t("}"), i(0) }, { condition = in_mathzone, snippetType = "autosnippet" }),
+  s({ trig = "_", wordTrig = false }, { t("_{"), i(1), t("}"), i(0) },
+    { condition = in_mathzone, snippetType = "autosnippet" }),
+  s({ trig = "^", wordTrig = false }, { t("^{"), i(1), t("}"), i(0) },
+    { condition = in_mathzone, snippetType = "autosnippet" }),
 
   -- Limits
   s("limm", { t("\\lim_{ "), i(1, "n"), t(" \\to "), i(2, "\\infty"), t(" } "), i(0) },

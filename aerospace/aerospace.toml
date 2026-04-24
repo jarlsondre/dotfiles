@@ -224,7 +224,7 @@ run = 'layout floating'
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
 
-## Ghostty
+# ## Ghostty
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
 run = "layout floating"

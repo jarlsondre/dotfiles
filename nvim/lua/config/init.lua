@@ -14,3 +14,5 @@ require("config.dial")
 require("config.tabby")
 require("config.oil")
 require("config.nvim-dap-ui")
+require("config.image")
+
