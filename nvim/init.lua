@@ -2,7 +2,6 @@
 vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/python-env/bin/python")
 
 require("config")
-require("autoclose").setup()
 require("luasnip.loaders.from_snipmate").load() -- moved from the bottom, make sure still works
 
 -- Check if current session is on SSH or running locally

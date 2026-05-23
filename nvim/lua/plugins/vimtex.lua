@@ -6,6 +6,7 @@ return {
   init = function()
     -- VimTeX configuration goes here, e.g.
     vim.g.vimtex_view_method = "skim";
+    vim.g.vimtex_format_enabled = 1
     vim.g.vimtex_quickfix_ignore_filters = {
       "Command terminated with space",
       "LaTeX Font Warning: Font shape",

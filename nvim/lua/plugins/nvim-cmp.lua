@@ -36,7 +36,11 @@ return {
     local luasnip
     if not is_ssh then
       luasnip = require 'luasnip'
-      luasnip.config.setup { enable_autosnippets = true }
+      luasnip.config.setup {
+        enable_autosnippets = true,
+        region_check_events = "CursorMoved,CursorMovedI",
+        delete_check_events = "TextChanged,InsertLeave",
+      }
       require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" })
     else
       -- stub so cmp-mappings don’t error out under SSH

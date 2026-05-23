@@ -21,9 +21,13 @@ local not_mathzone = function()
   return not in_mathzone()
 end
 
--- Helper for simple text replacements in math mode
-local math_snip = function(trig, replacement)
-  return s(trig, t(replacement), { condition = in_mathzone, snippetType = "autosnippet" })
+local math_snip = function(trig, replacement, opts)
+  opts = opts or {}
+  return s(
+    { trig = trig, wordTrig = opts.wordTrig },
+    t(replacement),
+    { condition = in_mathzone, snippetType = "autosnippet" }
+  )
 end
 
 return {
@@ -50,7 +54,9 @@ return {
     { condition = not_mathzone }),
   s("def", { t({ "\\begin{definition}", "\t" }), i(0), t({ "", "\\end{definition}" }) },
     { condition = not_mathzone }),
-  s("thm", { t({ "\\begin{theorem}", "\t" }), i(0), t({ "", "\\end{theorem}" }) },
+  s("theorem", { t({ "\\begin{theorem}", "\t" }), i(0), t({ "", "\\end{theorem}" }) },
+    { condition = not_mathzone }),
+  s("lemma", { t({ "\\begin{lemma}", "\t" }), i(0), t({ "", "\\end{lemma}" }) },
     { condition = not_mathzone }),
 
   -- Lists
@@ -60,6 +66,13 @@ return {
 
 }, {
   -- Autosnippets (expand automatically)
+
+  -- "x1" -> "x_{1}", but for any number
+  s({ trig = "([%a])(%d)", regTrig = true, wordTrig = false },
+    f(function(_, snip)
+      return snip.captures[1] .. "_{" .. snip.captures[2] .. "}"
+    end),
+    { condition = in_mathzone, snippetType = "autosnippet" }),
 
   -- Enter/exit math mode
   s("mk", { t("$"), i(1), t("$"), i(0) }, { condition = not_mathzone, snippetType = "autosnippet" }),
@@ -73,8 +86,8 @@ return {
   math_snip("...", "\\dots"),
   math_snip("xx", "\\times"),
   math_snip("**", "\\cdot"),
-  math_snip("invs", "^{-1}"),
-  math_snip("@@", "^{2}"),
+  math_snip("invs", "^{-1}", { wordTrig = false }),
+  math_snip("@@", "^{2}", { wordTrig = false }),
 
   -- Sub/superscripts
   s({ trig = "_", wordTrig = false }, { t("_{"), i(1), t("}"), i(0) },
@@ -130,6 +143,11 @@ return {
   math_snip("QQ", "\\mathbb{Q}"),
   math_snip("ZZ", "\\mathbb{Z}"),
   math_snip("NN", "\\mathbb{N}"),
+
+  -- Indices
+  math_snip("ii", "_{i}", { wordTrig = false }),
+  math_snip("jj", "_{j}", { wordTrig = false }),
+  math_snip("nn", "_{n}", { wordTrig = false }),
 
   -- Matrices (in math mode)
   s("pmat", { t({ "\\begin{pmatrix}", "" }), i(0), t({ "", "\\end{pmatrix}" }) },

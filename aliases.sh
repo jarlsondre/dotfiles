@@ -8,6 +8,12 @@ alias prev="cd -"
 alias wa="watch -n 0.5"
 start () { source $1/bin/activate; }
 
+# slurm stuff
+wsq() {
+  watch -n 0.5 -x squeue -u "$USER" \
+    -o "%.10i %.12j %.8a %.10u %.4D %.5C %.11m %.8M %.6t %.12r %.20S %.20N" -S S
+}
+
 # neovim
 alias n="nvim"
 
