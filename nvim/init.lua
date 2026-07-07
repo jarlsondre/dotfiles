@@ -1,11 +1,9 @@
 -- To make nvim find our python virtualenv for e.g. molten
 vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/python-env/bin/python")
 
+-- Plugins that are only useful locally (vimtex, luasnip, image.nvim, ...) check
+-- require("util.env").in_ssh() in their specs and are skipped over SSH.
 require("config")
-require("luasnip.loaders.from_snipmate").load()
-
--- Check if current session is on SSH or running locally
-vim.g.is_ssh = require("util.env").in_ssh()
 
 -- Basic stuff
 vim.opt.number = true

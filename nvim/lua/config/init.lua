@@ -1,17 +1,4 @@
+-- remap must come first: it sets the leader keys that both the <leader>
+-- keymaps and the plugin specs loaded by lazy rely on.
 require("config.remap")
 require("config.lazy")
-require("config.harpoon")
-require("config.nvim-dap")
-require("config.indent-blankline")
-require("config.neoscroll")
-require("config.nvim-ufo")
-require("config.gitsigns")
-require("config.conform")
-require("config.comment")
-require("config.treesitter-context")
-require("config.dial")
-require("config.tabby")
-require("config.oil")
-require("config.nvim-dap-ui")
-require("config.image")
-

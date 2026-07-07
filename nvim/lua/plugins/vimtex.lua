@@ -1,7 +1,7 @@
-if vim.g.is_ssh then return {} end
 return {
   "lervag/vimtex",
   lazy = false, -- we don't want to lazy load VimTeX
+  cond = not require("util.env").in_ssh(), -- LaTeX + Skim is a local-only workflow
   -- tag = "v2.15", -- uncomment to pin to a specific release
   init = function()
     -- VimTeX configuration goes here, e.g.

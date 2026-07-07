@@ -1,4 +1,7 @@
+-- Leader keys must be set before any <leader> keymaps and before lazy.nvim loads
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 vim.keymap.set("n", "<leader>pv", function() require("oil").open() end, { desc = "Open Oil file manager" })
 
 -- Window movement

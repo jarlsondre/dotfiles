@@ -1,2 +1,4 @@
-if vim.g.is_ssh then return {} end
-return { "micangl/cmp-vimtex" }
+return {
+  "micangl/cmp-vimtex",
+  cond = not require("util.env").in_ssh(), -- follows vimtex, which is local-only
+}
