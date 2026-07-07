@@ -4,6 +4,7 @@ return {
   "3rd/image.nvim",
   build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
   cond = not in_ssh, -- image rendering only works locally and needs imagemagick
+  ft = { "markdown", "vimwiki" }, -- only integrates with these, keep it off the startup path
   config = function()
     require("image").setup({
       backend = "kitty",

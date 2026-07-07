@@ -21,7 +21,9 @@ for sid in $(aerospace list-workspaces --all); do
     background.corner_radius=5 \
     background.height=22 \
     background.drawing=off \
-    click_script="$PLUGIN_DIR/space_click.sh"
+    click_script="$PLUGIN_DIR/space_click.sh" \
+    script="$PLUGIN_DIR/space_mouse.sh" \
+    --subscribe space.$sid mouse.exited.global
 done
 
 # A single hidden item keeps all workspace pills up to date (highlight + app

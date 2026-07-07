@@ -194,10 +194,10 @@ run = 'layout floating'
 if.app-id = 'cc.ffitch.shottr'
 run = 'layout floating'
 
-## Shottr
+## Calendar (only the first matching rule runs, so float + move must be one rule)
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
-run = 'layout floating'
+run = ['layout floating', 'move-node-to-workspace M']
 
 ## Anki
 [[on-window-detected]]
@@ -244,11 +244,6 @@ run = "layout floating"
 if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace M'
 
-## Calendar
-[[on-window-detected]]
-if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace M'
-
 ## Spotify
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
@@ -263,11 +258,6 @@ run = 'move-node-to-workspace N'
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace C'
-
-## iterm2
-[[on-window-detected]]
-if.app-id = 'com.googlecode.iterm2'
-run = 'move-node-to-workspace T'
 
 ## Firefox
 [[on-window-detected]]

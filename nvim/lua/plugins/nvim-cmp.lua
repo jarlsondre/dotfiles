@@ -9,6 +9,9 @@ return {
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    -- As a dependency it loads with cmp on InsertEnter: standalone it would
+    -- load cmp eagerly at startup through its after/plugin file.
+    { 'micangl/cmp-vimtex', cond = not in_ssh },
     { 'saadparwaiz1/cmp_luasnip', cond = not in_ssh },
     {
       'L3MON4D3/LuaSnip',
