@@ -1,3 +1,4 @@
 .DS_Store
 .venv/
 karabiner/automatic_backups/
+sketchybar/helpers/popup_guard

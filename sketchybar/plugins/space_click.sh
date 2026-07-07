@@ -32,3 +32,6 @@ if [ $i -eq 0 ]; then
 fi
 
 sketchybar --set "space.$sid" popup.drawing=toggle
+
+# Auto-close once the mouse moves away (exits immediately if the toggle closed it)
+"$CONFIG_DIR/plugins/space_popup_watch.sh" "space.$sid" >/dev/null 2>&1 &

@@ -6,6 +6,11 @@ PLUGIN_DIR="$CONFIG_DIR/plugins" # Needed inside of the sourced scripts
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
+# Compile the popup hit-test helper (used to auto-close popups) if missing
+if [ ! -x "$CONFIG_DIR/helpers/popup_guard" ] && command -v swiftc >/dev/null 2>&1; then
+  swiftc -O -o "$CONFIG_DIR/helpers/popup_guard" "$CONFIG_DIR/helpers/popup_guard.swift" >/dev/null 2>&1 &
+fi
+
 sketchybar --bar height=37        \
                  blur_radius=30   \
                  position=top     \
