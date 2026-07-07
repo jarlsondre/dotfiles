@@ -11,5 +11,5 @@ if [ "$SENDER" = "brightness_change" ]; then
     ;;
     *) ICON="󰃚"               # Very low/off
   esac
-  sketchybar --set "$NAME" icon="$ICON" label="$BRIGHTNESS%"
+  sketchybar --set "$NAME" drawing=on icon="$ICON" label="$BRIGHTNESS%"
 fi
