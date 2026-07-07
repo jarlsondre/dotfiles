@@ -22,8 +22,10 @@ fi
 
 # macOS specific setup
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Autocomplete
-  source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  # Autocomplete (if installed)
+  if [ -f /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+    source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  fi
 
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
@@ -50,10 +52,12 @@ fi
 
 export GPG_TTY=$(tty)
 
-# Setting up pyenv to work in the terminal
+# Setting up pyenv to work in the terminal (if installed)
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if command -v pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
 
 # Making the outputs of commands appear in the terminal rather than a new editor
 export PAGER=cat
