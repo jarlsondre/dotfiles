@@ -4,6 +4,8 @@
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/aliases.sh ~/.aliases
+ln -sf ~/dotfiles/.latexmkrc ~/.latexmkrc
+
 mkdir -p ~/.config
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 

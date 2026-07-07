@@ -144,6 +144,9 @@ return {
   math_snip("ZZ", "\\mathbb{Z}"),
   math_snip("NN", "\\mathbb{N}"),
 
+  -- Probability
+  math_snip("PP", "\\mathbb{P}"),
+
   -- Indices
   math_snip("ii", "_{i}", { wordTrig = false }),
   math_snip("jj", "_{j}", { wordTrig = false }),
