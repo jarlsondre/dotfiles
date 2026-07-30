@@ -32,7 +32,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.o.showtabline = 2
 
 -- Making option + backspace work as "delete previuos word"
-vim.keymap.set('i', '<M-BS>', "<C-W>")
+vim.keymap.set('i', '<M-BS>', "<C-W>", { desc = "Delete previous word" })
 
 -- Adding line numbers in netrw
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
@@ -42,7 +42,7 @@ vim.opt.inccommand = 'split'
 
 -- highlight search
 vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 vim.opt.scrolloff = 10
 

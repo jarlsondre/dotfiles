@@ -8,6 +8,7 @@ return {
     vim.keymap.set('n', '<leader>pg', builtin.git_files, { desc = "Find git files" })
     vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = "Open previous telescope search" })
     vim.keymap.set('n', '<leader>pl', builtin.live_grep, { desc = "Search grep string live (ripgrep)" })
+    vim.keymap.set('n', '<leader>pk', builtin.keymaps, { desc = "Search keymaps" })
 
     vim.keymap.set('n', '<leader>pb', function()
       builtin.buffers({ sort_mru = true })

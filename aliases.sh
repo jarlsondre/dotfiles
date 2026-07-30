@@ -37,3 +37,11 @@ alias gp="git push"
 
 # Use ripgrep to search for files matching a regex. Use: 'rgf my_search_string'
 alias rgf='rg --files | rg'
+
+# Global ripgrep config
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/rgrc"
+
+# Machine-local aliases (not in the repo)
+if [ -f "$HOME/.aliases.local" ]; then
+  . "$HOME/.aliases.local"
+fi

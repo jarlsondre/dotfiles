@@ -6,3 +6,7 @@ link-url = "true"
 
 # Make command + backspace delete from the cursor and backwards
 keybind = cmd+backspace=esc:w
+
+# Make LEFT option send Alt, so option+backspace deletes a word (zsh, Claude Code, etc).
+# Right option is left alone so the Norwegian layout keeps \ | { } [ ] ~ on option+key.
+macos-option-as-alt = left

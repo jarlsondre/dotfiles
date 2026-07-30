@@ -10,6 +10,7 @@ ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
 
 mkdir -p ~/.config
 ln -sfn ~/dotfiles/nvim ~/.config/nvim
+ln -sfn ~/dotfiles/ripgrep ~/.config/ripgrep
 
 # LaTeX style file (TEXMFHOME is ~/Library/texmf on macOS, ~/texmf on Linux)
 if [ "$(uname)" = "Darwin" ]; then
@@ -36,6 +37,18 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 2>/dev/null ||
 if ! command -v uv >/dev/null 2>&1; then
     curl -LsSf https://astral.sh/uv/install.sh | sh
     export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Install fd if not present (venv-selector.nvim searches for venvs with it).
+# Debian/Ubuntu ship the binary as `fdfind`, which venv-selector detects too.
+if ! command -v fd >/dev/null 2>&1 && ! command -v fdfind >/dev/null 2>&1; then
+    if [ "$(uname)" = "Darwin" ]; then
+        brew install fd
+    elif command -v apt-get >/dev/null 2>&1 && command -v sudo >/dev/null 2>&1; then
+        sudo apt-get install -y fd-find
+    else
+        echo "warning: fd not found and not installable here; :VenvSelect in Neovim will not work"
+    fi
 fi
 
 # Neovim Python environment

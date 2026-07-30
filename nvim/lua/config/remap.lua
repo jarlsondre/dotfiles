@@ -4,6 +4,10 @@ vim.g.maplocalleader = "\\"
 
 vim.keymap.set("n", "<leader>pv", function() require("oil").open() end, { desc = "Open Oil file manager" })
 
+-- Copy files across dirs: yank in one Oil buffer, paste in another, :w.
+vim.keymap.set("n", "<leader>pd", function() require("oil").open(vim.fn.expand("~/Downloads")) end,
+  { desc = "Open Downloads in Oil" })
+
 -- Window movement
 vim.keymap.set('n', '<leader>h', '<C-w>h', { noremap = true, desc = "Move to left window" })
 vim.keymap.set('n', '<leader>j', '<C-w>j', { noremap = true, desc = "Move to window below" })

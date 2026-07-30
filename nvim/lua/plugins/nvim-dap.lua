@@ -64,46 +64,46 @@ return {
     }
     vim.fn.sign_define('DapBreakpoint', { text = '◆', texthl = '', linehl = '', numhl = '' })
 
-    vim.api.nvim_set_keymap('n', '<F5>', "<Cmd>lua require'dap'.continue()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<F10>', "<Cmd>lua require'dap'.step_over()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<F11>', "<Cmd>lua require'dap'.step_into()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<F12>', "<Cmd>lua require'dap'.step_out()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<Leader>b', "<Cmd>lua require'dap'.toggle_breakpoint()<CR>",
-      { noremap = true, silent = true })
+    vim.keymap.set('n', '<F5>', function() require('dap').continue() end,
+      { silent = true, desc = "DAP: start/continue debugging" })
+    vim.keymap.set('n', '<F10>', function() require('dap').step_over() end,
+      { silent = true, desc = "DAP: step over" })
+    vim.keymap.set('n', '<F11>', function() require('dap').step_into() end,
+      { silent = true, desc = "DAP: step into" })
+    vim.keymap.set('n', '<F12>', function() require('dap').step_out() end,
+      { silent = true, desc = "DAP: step out" })
+    vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end,
+      { silent = true, desc = "DAP: toggle breakpoint" })
     -- vim.api.nvim_set_keymap('n', '<Leader>B', "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { noremap = true, silent = true })
     -- vim.api.nvim_set_keymap('n', '<Leader>lp', "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", { noremap = true, silent = true })
 
-    -- Open Read-Eval-Print Loop (essentially debug console)
-    vim.api.nvim_set_keymap('n', '<Leader>dc', "<Cmd>lua require'dap'.repl.open()<CR>", { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>dc', function() require('dap').repl.open() end,
+      { silent = true, desc = "DAP: open REPL (debug console)" })
 
-    -- Rerun session
-    vim.api.nvim_set_keymap('n', '<Leader>rr', "<Cmd>lua require'dap'.run_last()<CR>", { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>rr', function() require('dap').run_last() end,
+      { silent = true, desc = "DAP: rerun last debug session" })
 
-    -- Terminate session
     vim.keymap.set('n', '<Leader>dq', function()
       require('dap').terminate()
-    end)
+    end, { desc = "DAP: terminate session" })
 
-    -- Hover functionality - shows some information about values
     vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
       require('dap.ui.widgets').hover()
-    end)
+    end, { desc = "DAP: hover info for value" })
 
-    -- Preview functionality - shows more in-depth information about values
+    -- More in-depth information than hover
     vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
       require('dap.ui.widgets').preview()
-    end)
+    end, { desc = "DAP: preview value" })
 
-    -- Showing the call stack
     vim.keymap.set('n', '<Leader>df', function()
       local widgets = require('dap.ui.widgets')
       widgets.centered_float(widgets.frames)
-    end)
+    end, { desc = "DAP: show call stack" })
 
-    -- Showing the variable scopes
     vim.keymap.set('n', '<Leader>ds', function()
       local widgets = require('dap.ui.widgets')
       widgets.sidebar(widgets.scopes, nil, 'leftabove 40vsplit').open()
-    end)
+    end, { desc = "DAP: show variable scopes" })
   end,
 }

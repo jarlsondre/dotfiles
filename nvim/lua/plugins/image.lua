@@ -4,7 +4,7 @@ return {
   "3rd/image.nvim",
   build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
   cond = not in_ssh, -- image rendering only works locally and needs imagemagick
-  ft = { "markdown", "vimwiki" }, -- only integrates with these, keep it off the startup path
+  ft = { "markdown", "vimwiki", "python" }, -- python so molten can render plots
   config = function()
     require("image").setup({
       backend = "kitty",
@@ -18,8 +18,8 @@ return {
           filetypes = { "markdown", "vimwiki" },
         },
       },
-      max_width = 100,
-      max_height = 12,
+      max_width = 150,
+      max_height = 30, -- molten clamps plots to this; keep in sync with molten_output_win_max_height
       max_height_window_percentage = math.huge,
       max_width_window_percentage = math.huge,
       window_overlap_clear_enabled = true,

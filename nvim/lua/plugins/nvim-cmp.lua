@@ -80,5 +80,14 @@ return {
 
       sources = sources,
     }
+
+    -- LaTeX drops the snippet source: every tex snippet is an autosnippet
+    -- (snippets/tex.lua), so listing them in the menu adds nothing you can use.
+    -- It only gets in the way -- typing `t` inside `X_{t}` offers `theorem`,
+    -- and the <Tab> meant to escape the braces accepts it instead. texlab and
+    -- vimtex stay on: they fire on `\`, `\cite{`, `\ref{`, `\begin{` only.
+    cmp.setup.filetype('tex', {
+      sources = vim.tbl_filter(function(s) return s.name ~= 'luasnip' end, sources),
+    })
   end,
 }

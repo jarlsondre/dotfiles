@@ -33,10 +33,14 @@ for sid in $(aerospace list-workspaces --all); do
     continue
   fi
 
+  # With no label the pill would be lopsided (8px left, 2px right), so shift
+  # the label's padding onto the icon when hiding it.
   if [ -n "$icons" ]; then
-    args+=(--set "space.$sid" label="$icons" label.drawing=on)
+    args+=(--set "space.$sid" label="$icons" label.drawing=on \
+      label.padding_left=2 label.padding_right=8 icon.padding_right=2)
   else
-    args+=(--set "space.$sid" label.drawing=off)
+    args+=(--set "space.$sid" label.drawing=off \
+      label.padding_left=0 label.padding_right=0 icon.padding_right=8)
   fi
 done
 

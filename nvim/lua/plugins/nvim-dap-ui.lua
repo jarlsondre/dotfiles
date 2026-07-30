@@ -75,6 +75,6 @@ return {
         }
       }
     )
-    vim.keymap.set('n', '<Leader>do', function() dapui.toggle() end)
+    vim.keymap.set('n', '<Leader>do', function() dapui.toggle() end, { desc = "DAP: toggle debug UI" })
   end,
 }

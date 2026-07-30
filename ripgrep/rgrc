@@ -1,0 +1,6 @@
+# ripgrep global config (RIPGREP_CONFIG_PATH is set in aliases.sh).
+# Skip cloud-sync trash dirs: rg stat-ing File Provider placeholders can hang
+# uninterruptibly, and it reaches nvim through Telescope's rg calls.
+--glob=!.Trash/
+--glob=!.TemporaryItems/
+--glob=!.DocumentRevisions-V100/

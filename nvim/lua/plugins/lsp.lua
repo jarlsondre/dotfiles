@@ -19,19 +19,21 @@ return {
     end
 
     local lsp_attach = function(client, bufnr)
-      local opts = { buffer = bufnr }
-      vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-      vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-      vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-      vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-      vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-      vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
-      vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-      vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-      vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-      vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-      vim.keymap.set('n', '<leader>fl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-      vim.keymap.set('n', '<leader>dn', toggle_diagnostics, { desc = "Toggle diagnostics" })
+      local map = function(mode, lhs, rhs, desc)
+        vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+      end
+      map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', "LSP: hover documentation")
+      map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', "LSP: go to definition")
+      map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', "LSP: go to declaration")
+      map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', "LSP: go to implementation")
+      map('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', "LSP: go to type definition")
+      map('n', 'gr', '<cmd>Telescope lsp_references<cr>', "LSP: list references")
+      map('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', "LSP: signature help")
+      map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', "LSP: rename symbol")
+      map({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', "LSP: format buffer")
+      map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', "LSP: code action")
+      map('n', '<leader>fl', '<cmd>lua vim.diagnostic.open_float()<cr>', "Show diagnostics in float")
+      map('n', '<leader>dn', toggle_diagnostics, "Toggle diagnostics")
     end
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -66,14 +68,16 @@ return {
             capabilities = capabilities,
             settings = {
               texlab = {
+                -- VimTeX owns compilation; texlab must not also build on save
+                -- (two latexmk runs clobber the same build dir).
                 build = {
                   executable = "latexmk",
                   args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-                  onSave = true,
+                  onSave = false,
                 },
                 chktex = {
                   onOpenAndSave = true,
-                  onEdit = true,
+                  onEdit = false, -- ~2s per run on a 100-line file; unusable per-keystroke
                 },
                 forwardSearch = {
                   executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
