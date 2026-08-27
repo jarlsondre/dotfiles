@@ -49,6 +49,7 @@ source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/brightness.sh"
 source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/spotify.sh"
+source "$ITEM_DIR/pomo.sh"
 
 #### Finalizing Setup #####
 # The below command is only needed at the end of the initial configuration to

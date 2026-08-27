@@ -9,6 +9,8 @@ export POPUP_BG_COLOR=0xf01f2335
 
 export TEXT_COLOR=0xffe2e7ff  # near-white with a cold tint
 export MUTED_COLOR=0xff8891b4 # inactive/offline, still clearly legible
-export ACCENT_COLOR=0xff7aa2f7 # blue, focused workspace (dark text on top)
+export ACCENT_COLOR=0xff7aa2f7 # blue, focused workspace (dark text on top), pomo long break
 export ACCENT_ALT=0xffbb9af7   # purple, highlights (vpn etc.)
-export GREEN=0xff9ece6a        # spotify
+export GREEN=0xff9ece6a        # spotify, pomo work
+export CYAN=0xff7dcfff         # pomo short break
+export YELLOW=0xffe0af68       # pomo paused

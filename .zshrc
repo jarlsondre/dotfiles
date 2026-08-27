@@ -80,5 +80,11 @@ case ":${PATH}:" in
         ;;
 esac
 
+# Secrets, kept out of coding-agent shells (they set CLAUDECODE)
+[ -z "$CLAUDECODE" ] && [ -f "$HOME/.secrets.env" ] && source "$HOME/.secrets.env"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Cargo dev builds win over brew-installed copies of the same tools (pomo etc.)
+export PATH="$HOME/.cargo/bin:$PATH"
