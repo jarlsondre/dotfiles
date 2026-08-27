@@ -10,3 +10,5 @@
 	format = ssh
 [init]
 	defaultBranch = main
+[core]
+	editor = vim

@@ -4,6 +4,7 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 HYPHEN_INSENSITIVE="true"
 
@@ -13,6 +14,9 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+if [[ "$OSTYPE" == "linux"* ]]; then
+  ZSH_DISABLE_COMPFIX=true
+fi
 source $ZSH/oh-my-zsh.sh
 
 # Assumes you have symlinked the dotfiles/aliases.sh file
@@ -63,9 +67,7 @@ fi
 export PAGER=cat
 
 # Setting up Fzf (if it exists)
-if command -v fzf > /dev/null; then
-  source <(fzf --zsh)
-fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Ensure ~/.local/bin is in PATH so user-installed tools (e.g., pip --user) are found.
 # This logic adds it only if it's not already present, and prepends it to give priority.
@@ -88,3 +90,6 @@ esac
 
 # Cargo dev builds win over brew-installed copies of the same tools (pomo etc.)
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Checks if the file exists and sources it if it does. Meant to contain local settings
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
